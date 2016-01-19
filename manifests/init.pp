@@ -1,6 +1,7 @@
 class sar (
             $ensure='installed',
             $enabled=true,
+            $history='7',
           ) inherits params{
 
   package { $packages:
@@ -17,6 +18,15 @@ class sar (
       content => inline_template("ENABLED=\"<% if @enabled %>true<% else %>false<% end %>\"\n"),
       require => Package[$packages],
     }
+  }
+
+  file { $sar::params::sysstat_conf:
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template($sar::params::sysstat_template),
+    require => Package[$packages],
   }
 
 }

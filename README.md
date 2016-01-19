@@ -38,6 +38,7 @@ class sar {
 
 * ensure: set if the sar package will be installed or removed.
 * enable: set if sar is enabled or disabled.
+* history: how long to keep log files (in days)
 
 ## Reference
 
@@ -46,6 +47,6 @@ Classes:
 
 ## Limitations
 
-* Radhat and derivatives: releases 5 and 6.
+* Redhat and derivatives: releases 5, 6 and 7.
 * Ubuntu: 14
 * Other: Not supported.
