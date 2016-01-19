@@ -4,7 +4,7 @@ class sar (
             $history='7',
           ) inherits params{
 
-  package { $packages:
+  package { $sar::params::packages:
     ensure => $ensure,
   }
 
@@ -16,7 +16,7 @@ class sar (
       group   => 'root',
       mode    => '0644',
       content => inline_template("ENABLED=\"<% if @enabled %>true<% else %>false<% end %>\"\n"),
-      require => Package[$packages],
+      require => Package[$sar::params::packages],
     }
   }
 
@@ -26,7 +26,7 @@ class sar (
     group   => 'root',
     mode    => '0644',
     content => template($sar::params::sysstat_template),
-    require => Package[$packages],
+    require => Package[$sar::params::packages],
   }
 
 }
