@@ -1,4 +1,5 @@
 class sar::params {
+  
   case $::osfamily
   {
     'redhat':
