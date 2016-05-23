@@ -2,7 +2,7 @@ class sar (
             $ensure='installed',
             $enabled=true,
             $history='30',
-          ) inherits params{
+          ) inherits sar::params{
 
   package { $sar::params::packages:
     ensure => $ensure,
