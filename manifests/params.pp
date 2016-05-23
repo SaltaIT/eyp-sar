@@ -1,5 +1,5 @@
 class sar::params {
-  
+
   case $::osfamily
   {
     'redhat':
@@ -9,6 +9,7 @@ class sar::params {
         /^[5-7].*$/:
         {
           $packages=[ 'sysstat' ]
+          $enablefile_debian=undef
           $sysstat_conf='/etc/sysconfig/sysstat'
           $sysstat_template="${module_name}/rh/sysstat.erb"
         }
