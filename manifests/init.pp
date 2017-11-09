@@ -2,7 +2,7 @@ class sar (
             $ensure       = 'installed',
             $enabled      = true,
             $history      = '30',
-            $sadc_options = undef,
+            $sadc_options = $sar::params::sadc_options_default,
           ) inherits sar::params{
 
   package { $sar::params::packages:

@@ -1,8 +1,8 @@
 {
   "name": "eyp-sar",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "author": "eyp",
-  "summary": "ensures sar is installed and enabled",
+  "summary": "sar management",
   "license": "Apache-2.0",
   "source": "https://github.com/NTTCom-MS/eyp-sar",
   "project_page": "https://github.com/NTTCom-MS/eyp-sar",
