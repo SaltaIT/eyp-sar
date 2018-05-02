@@ -29,7 +29,7 @@ class sar (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template($sar::params::sysstat_template),
+    content => template("${module_name}/sysstat.erb"),
     require => Package[$sar::params::packages],
   }
 
