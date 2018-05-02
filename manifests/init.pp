@@ -1,8 +1,11 @@
 class sar (
-            $ensure       = 'installed',
-            $enabled      = true,
-            $history      = '30',
-            $sadc_options = $sar::params::sadc_options_default,
+            $ensure         = 'installed',
+            $enabled        = true,
+            $history        = '30',
+            $sadc_options   = $sar::params::sadc_options_default,
+            $sa_dir         = $sar::params::sa_dir_default,
+            $compress_after = $sar::params::compress_after_default,
+            $compress       = $sar::params::compress_default,
           ) inherits sar::params{
 
   package { $sar::params::packages:

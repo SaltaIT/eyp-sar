@@ -8,6 +8,9 @@ class sar::params {
       $enablefile_debian=undef
       $sysstat_conf='/etc/sysconfig/sysstat'
       $sysstat_template="${module_name}/rh/sysstat.erb"
+      $sa_dir_default=undef
+      $compress_after_default=undef
+      $compress_default=undef
       case $::operatingsystemrelease
       {
         /^5.*$/:
@@ -31,15 +34,23 @@ class sar::params {
       {
         'Ubuntu':
         {
+          $packages=[ 'sysstat' ]
+          $enablefile_debian='/etc/default/sysstat'
+          $sysstat_conf='/etc/sysstat/sysstat'
+          $sysstat_template="${module_name}/debian/sysstat.erb"
+          $sadc_options_default='-S DISK'
+          $compress_after_default='10'
           case $::operatingsystemrelease
           {
             /^1[46].*$/:
             {
-              $packages=[ 'sysstat' ]
-              $enablefile_debian='/etc/default/sysstat'
-              $sysstat_conf='/etc/sysstat/sysstat'
-              $sysstat_template="${module_name}/debian/sysstat.erb"
-              $sadc_options_default='-S DISK'
+              $sa_dir_default=undef
+              $compress_default=undef
+            }
+            /^18.*$/:
+            {
+              $sa_dir_default='/var/log/sysstat'
+              $compress_default='xz'
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
@@ -50,6 +61,9 @@ class sar::params {
     }
     'Suse':
     {
+      $sa_dir_default=undef
+      $compress_default=undef
+      $compress_after_default=undef
       case $::operatingsystem
       {
         'SLES':
