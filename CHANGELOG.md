@@ -2,7 +2,7 @@
 
 ## 0.2.4
 
-* update SADC options
+* update SADC options for RHEL 6
 
 ## 0.2.3
 
