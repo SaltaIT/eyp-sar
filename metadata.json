@@ -1,7 +1,7 @@
 {
   "name": "eyp-sar",
   "version": "0.2.5",
-  "author": "eyp",
+  "author": "Jordi Prats",
   "summary": "sar management",
   "license": "Apache-2.0",
   "source": "https://github.com/SaltaIT/eyp-sar",
